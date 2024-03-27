@@ -1,9 +1,1 @@
-[
-    {
-        "name": "dhruv",
-        "username": "dhruv1",
-        "email": "dhruv1@gmail.com",
-        "password": "$2b$10$C3GfWDEuytsXz.BRzjTknO8oVhxqER5kEtC6ExFzgtPvyGmnfOnN6",
-        "id": "3395a391-36c7-4690-9516-5eed1d115443"
-    }
-]
+[{"name":"dhruv","username":"dhruv1","email":"dhruv1@gmail.com","password":"$2b$10$C3GfWDEuytsXz.BRzjTknO8oVhxqER5kEtC6ExFzgtPvyGmnfOnN6","id":"3395a391-36c7-4690-9516-5eed1d115443"},{"name":"dhruv","username":"dhruv2","email":"dhruv2@gmail.com","password":"$2b$10$.VrnZLrA0RgC14vNNjMZnes.3/GsIYl9uZwsNKluQb./KxOzNWap2","id":"638d88b1-e03f-49b5-9ded-756f282a5bd7"},{"name":"dhruv","username":"dhruv3","email":"dhruv3@gmail.com","password":"$2b$10$OKKrvCsmp/s1evWym8sqGO5YnfvGbS4zAs4YwKr9e/v/cQsQnPSoq","id":"0cdf5a64-1db8-4daf-a58b-952a170d2836"},{"name":"dhruv","username":"dhruv4","email":"dhruv4@gmail.com","password":"$2b$10$4lYU1JwW4yrJCR8DR0svEeKCBINAsFp7Pyp2vZGJJTXnYujCkpZoS","id":"0d4e567f-8ecf-4342-9357-31032e170062"},{"name":"dhruv","username":"dhruv5","email":"dhruv5@gmail.com","password":"$2b$10$H/QrqyoDfuHwGVYLmddkIObrcT2Mvg7PKV0Ux1Fb.rcTPe1xfQ0hW","id":"0ddfedfe-d38d-4510-90f3-37d9f59adf54"}]

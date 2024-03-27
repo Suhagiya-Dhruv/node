@@ -3,6 +3,7 @@ const fs = require('fs');
 const { v4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const app = express();
+const jwt = require('jsonwebtoken');
 
 // app.use((req, res, next) => {
 //     console.log("1 Middleware")
@@ -17,6 +18,22 @@ const app = express();
 // })
 
 app.use(express.json())
+
+// error handling
+
+function tokenCheck(req, res, next) {
+    try {
+        const token = req.headers.authorization.split(" ")[1];
+        const decoded = jwt.verify(token, 'laptop'); // secret key
+        if (decoded) {
+            next();
+        } else {
+            res.status(401).send("Invalid token..!")
+        }
+    } catch (e) {
+        res.status(401).send("Invalid token..!")
+    }
+}
 
 const port = 5000;
 
@@ -60,7 +77,7 @@ async function checkPassword(userPassword, dataPassword) {
     const data = await bcrypt.compare(userPassword, dataPassword);
     return data;
 }
-app.post('/user', async (req, res) => {
+app.post('/user', async (req, res) => { // login API
     const { username, password } = req.body;
 
     const data = JSON.parse(fs.readFileSync('data.json'));
@@ -69,7 +86,14 @@ app.post('/user', async (req, res) => {
         const response = data.find(item => item.username === username);
         const match = await checkPassword(password, response.password)
         if (match) {
-            res.send(response)
+            console.log(response)
+
+            const token = jwt.sign(
+                { name: response.name, username: response.username, id: response.id },
+                "laptop",
+                { expiresIn: 60 * 60 });
+            res.send(token);
+
         } else {
             res.status(404).send("Invalid username or password")
         }
@@ -80,7 +104,7 @@ app.post('/user', async (req, res) => {
 })
 
 
-app.post('/user/create', async (req, res) => {
+app.post('/user/create', tokenCheck, async (req, res) => { // Create a new user
 
     const id = v4()
     const data = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
