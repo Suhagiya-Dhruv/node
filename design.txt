@@ -1,0 +1,61 @@
+relationship
+
+one-to-one
+one-to-many
+many-to-one
+many-to-many
+
+Database design
+
+school Data
+------------------------------------------
+School_name : string,
+school_address : string,
+id: unique
+branch_number: unique
+
+
+User Data
+----------------------
+id: unique,
+first_name: string,
+last_name: string,
+email: string,
+password: string
+mobile: number,
+address: string
+type: [principal, teacher, student]
+
+
+Admission Data
+------------------------------------
+Admission_id : user_id
+School_id: School_id
+join data : date,
+class: string
+mediaum : [Hindi, Gujarati, English],
+
+
+
+teaacher class assign
+-------------------------------------
+class_id: class_id,
+teacher_id: user_id,
+subject: [Maths, hindi, gujarati, sicence, english]
+time: date,
+duration: 40
+
+
+
+class data
+---------------------------------
+id: unique,
+student: [student_ids],
+maxLength : 50,
+class_name: [1 to 12],
+class_type: [sencodary, commarce, sicence, art],
+
+
+
+
+
